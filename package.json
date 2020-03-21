@@ -1,0 +1,71 @@
+{
+  "author": "Marcel Jänicke",
+  "contributors": [
+    {
+      "name": "Marcel Jänicke",
+      "email": "inpercima@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "@angular/animations": "~9.0.7",
+    "@angular/common": "~9.0.7",
+    "@angular/compiler": "~9.0.7",
+    "@angular/core": "~9.0.7",
+    "@angular/forms": "~9.0.7",
+    "@angular/platform-browser": "~9.0.7",
+    "@angular/platform-browser-dynamic": "~9.0.7",
+    "@angular/router": "~9.0.7",
+    "rxjs": "~6.5.4",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2",
+    "@angular/cdk": "~9.1.1",
+    "@angular/flex-layout": "~9.0.0-beta.29",
+    "@angular/material": "~9.1.1",
+    "@auth0/angular-jwt": "~3.0.1",
+    "json-server": "~0.15.1",
+    "jsonwebtoken": "~8.5.1",
+    "chart.js": "2.9.3",
+    "ng2-charts": "2.3.0"
+  },
+  "description": "Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.",
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.900.7",
+    "@angular/cli": "~9.0.7",
+    "@angular/compiler-cli": "~9.0.7",
+    "@angular/language-service": "~9.0.7",
+    "@types/node": "^12.11.1",
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "codelyzer": "^5.1.2",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~2.1.0",
+    "karma-jasmine": "~2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.2",
+    "protractor": "~5.4.3",
+    "ts-node": "~8.3.0",
+    "tslint": "~5.18.0",
+    "typescript": "~3.7.5"
+  },
+  "engines": {
+    "node": ">=12.16.1"
+  },
+  "homepage": "http://covid-19.inpercima.net",
+  "license": "MIT",
+  "name": "covid-19",
+  "private": true,
+  "repository": "https://github.com/inpercima/covid-1",
+  "scripts": {
+    "build:dev": "ng lint && ng build --configuration=dev",
+    "serve:dev": "ng serve -o --configuration=dev",
+    "watch:dev": "ng build --watch --configuration=dev",
+    "build:mock": "ng lint && ng build --configuration=mock",
+    "run:mock": "json-server mock/db.json --middlewares mock/middleware.js",
+    "serve:mock": "ng serve -o --configuration=mock",
+    "watch:mock": "ng build --watch --configuration=mock",
+    "build:prod": "ng lint && ng build --prod"
+  },
+  "version": "1.0.0-SNAPSHOT"
+}

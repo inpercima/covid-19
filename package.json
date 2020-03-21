@@ -53,7 +53,7 @@
   "license": "MIT",
   "name": "covid-19",
   "private": true,
-  "repository": "https://github.com/inpercima/covid-1",
+  "repository": "https://github.com/inpercima/covid-19",
   "scripts": {
     "build:dev": "ng lint && ng build --configuration=dev",
     "serve:dev": "ng serve -o --configuration=dev",

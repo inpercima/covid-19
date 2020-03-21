@@ -38,7 +38,7 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
 ```bash
 # clone project
-git clone https://github.com/inpercima/covid-1
+git clone https://github.com/inpercima/covid-19
 cd covid-19
 
 # install tools and frontend dependencies

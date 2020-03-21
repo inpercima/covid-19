@@ -10,7 +10,7 @@
         "email": "inpercima@gmail.com"
       }],
       "homepage": "http://covid-19.inpercima.net",
-      "repository": "https://github.com/inpercima/covid-1"
+      "repository": "https://github.com/inpercima/covid-19"
     },
     "prefix": "covid",
     "routing": {

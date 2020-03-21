@@ -61,10 +61,6 @@
     "build:dev": "ng lint && ng build --configuration=dev",
     "serve:dev": "ng serve -o --configuration=dev",
     "watch:dev": "ng build --watch --configuration=dev",
-    "build:mock": "ng lint && ng build --configuration=mock",
-    "run:mock": "json-server mock/db.json --middlewares mock/middleware.js",
-    "serve:mock": "ng serve -o --configuration=mock",
-    "watch:mock": "ng build --watch --configuration=mock",
     "build:prod": "ng lint && ng build --prod"
   },
   "version": "1.0.0-SNAPSHOT"

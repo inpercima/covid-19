@@ -11,10 +11,10 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  data(): Observable<any> {
-    // tslint:disable-next-line: max-line-length
-    const api = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0/query?f=json&where=IdLandkreis%3D%2714713%27&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=ObjectId%2CAnzahlFall%2CMeldedatum&orderByFields=Meldedatum%20asc&resultOffset=0&resultRecordCount=2000&cacheHint=true';
-    return this.httpClient.get(api).pipe(map(response => {
+  data(region: string): Observable<any> {
+    const baseUrl = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0/';
+    const extraParameters = '&outFields=AnzahlFall,Meldedatum&orderByFields=Meldedatum asc&resultType=standard';
+    return this.httpClient.get(`${baseUrl}query?f=json&where=${region}${extraParameters}`).pipe(map(response => {
       const result = new Map();
       // tslint:disable-next-line: no-string-literal
       response['features'].forEach(element => {

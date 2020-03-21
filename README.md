@@ -101,38 +101,9 @@ Change for prodMode the option `production` to `true`.
 
 ### Table of contents
 
-* [activateLogin](#activateLogin)
-* [api](#api)
-* [apiSuffix](#apiSuffix)
 * [appname](#appname)
-* [defaultRoute](#defaultRoute)
 * [production](#production)
-* [redirectNotFound](#redirectNotFound)
-* [showFeatures](#showFeatures)
-* [showLogin](#showLogin)
 * [theme](#theme)
-
-### `activateLogin`
-
-Defines whether the login module will be used or not.
-
-* default: `false`
-* type: `boolean`
-* values: `true`/`false`
-
-### `api`
-
-Defines the URL to the backend.
-
-* default: `./`
-* type: `string`
-
-### `apiSuffix`
-
-Defines a suffix for the api to the backend.
-
-* default: EMPTY
-* type: `string`
 
 ### `appname`
 
@@ -141,40 +112,9 @@ Applicationwide title of the app, displayed in title and toolbar.
 * default: `COVID-19`
 * type: `string`
 
-### `defaultRoute`
-
-The default route and the route to be redirected after a login if no route is stored or if a route does not exist.
-
-* default: ``
-* type: `string`
-
 ### `production`
 
 Defines whether the app is in production or not.
-
-* default: `false`
-* type: `boolean`
-* values: `true`/`false`
-
-### `redirectNotFound`
-
-Defines whether the 404 route will redirect to the default route or not.
-
-* default: `false`
-* type: `boolean`
-* values: `true`/`false`
-
-### `showFeatures`
-
-Defines whether the feature routes will be displayed in navigation or not.
-
-* default: `false`
-* type: `boolean`
-* values: `true`/`false`
-
-### `showLogin`
-
-Defines whether the login route will be displayed in navigation or not.
 
 * default: `false`
 * type: `boolean`

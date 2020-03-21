@@ -3,8 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  api: './',
-  apiSuffix: '',
   appname: 'COVID-19',
   production: false,
   theme: 'indigo-pink',

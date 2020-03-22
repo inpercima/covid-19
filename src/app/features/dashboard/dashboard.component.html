@@ -1,43 +1,29 @@
 <div fxLayout="row" fxLayoutAlign="center">
   <div fxFlex="90" fxFlex.sm="80" fxFlex.gt-sm="60">
-    <mat-card *ngIf="lineChartDataG">
+    <mat-card *ngIf="chartDataGermany">
       <mat-card-content>
-          <canvas
-            baseChart
-            [datasets]="lineChartDataG"
-            [labels]="lineChartLabelsG"
-            [options]="lineChartOptions"
-            legend="true"
-            chartType="line"
-          ></canvas>
+        <canvas baseChart [datasets]="chartDataGermany" [labels]="chartLabelsGermany" [options]="chartOptions" legend="true" chartType="line"></canvas>
       </mat-card-content>
     </mat-card>
-    <mat-card *ngIf="lineChartDataS">
+    <mat-card *ngIf="chartDataSaxony">
       <mat-card-content>
-          <canvas
-            baseChart
-            [datasets]="lineChartDataS"
-            [labels]="lineChartLabelsS"
-            [options]="lineChartOptions"
-            legend="true"
-            chartType="line"
-          ></canvas>
+        <canvas baseChart [datasets]="chartDataSaxony" [labels]="chartLabelsSaxony" [options]="chartOptions" legend="true" chartType="line"></canvas>
       </mat-card-content>
     </mat-card>
-    <mat-card *ngIf="lineChartDataL">
+    <mat-card *ngIf="chartDataLeipzig">
       <mat-card-content>
-          <canvas
-            baseChart
-            [datasets]="lineChartDataL"
-            [labels]="lineChartLabelsL"
-            [options]="lineChartOptions"
-            legend="true"
-            chartType="line"
-          ></canvas>
+        <canvas baseChart [datasets]="chartDataLeipzig" [labels]="chartLabelsLeipzig" [options]="chartOptions" legend="true" chartType="line"></canvas>
+      </mat-card-content>
+    </mat-card>
+    <mat-card style="margin-bottom: 20px;">
+      <mat-card-content>
+        Data provided RKI (Robert Koch Institute).
+        <br><br>
+        RKI uses the data for <a href="https://corona.rki.de">corona.rki.de</a>,
+        same as <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4">https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4</a>.
+        <br><br>
+        The data can be queryed by <a href="https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/RKI_COVID19/FeatureServer/0/query">ArcGIS REST Services Directory</a>.
       </mat-card-content>
     </mat-card>
   </div>
 </div>
-<br><br>
-Data by RKI (Robert Koch Institut), parsed by https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4 via API under <br>
-https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/RKI_COVID19/FeatureServer/query

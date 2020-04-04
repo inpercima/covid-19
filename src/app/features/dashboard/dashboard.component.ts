@@ -30,19 +30,19 @@ export class DashboardComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.data('1=1').subscribe(response => {
+    this.dataService.data('').subscribe(response => {
       const data = this.prepareData(response, 'Germany');
       this.chartDataGermany = data.get('data') as ChartDataSets[];
       this.chartLabelsGermany = data.get('labels') as Label[];
     });
 
-    this.dataService.data(`Bundesland='Sachsen'`).subscribe(response => {
+    this.dataService.data(`AND (Bundesland='Sachsen')`).subscribe(response => {
       const data = this.prepareData(response, 'Saxony');
       this.chartDataSaxony = data.get('data') as ChartDataSets[];
       this.chartLabelsSaxony = data.get('labels') as Label[];
     });
 
-    this.dataService.data(`IdLandkreis='14713'`).subscribe(response => {
+    this.dataService.data(`AND (IdLandkreis='14713')`).subscribe(response => {
       const data = this.prepareData(response, 'Leipzig');
       this.chartDataLeipzig = data.get('data') as ChartDataSets[];
       this.chartLabelsLeipzig = data.get('labels') as Label[];

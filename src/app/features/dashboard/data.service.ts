@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { EMPTY, Observable } from 'rxjs';
+import { expand, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +12,27 @@ export class DataService {
   constructor(private httpClient: HttpClient) { }
 
   data(region: string): Observable<Map<string, number>> {
-    const baseUrl = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0/';
-    const parameters = '&outFields=AnzahlFall,Meldedatum&orderByFields=Meldedatum asc&resultType=standard';
-    return this.httpClient.get(`${baseUrl}query?f=json&where=${region}${parameters}`).pipe(map(response => {
-      const result = new Map<string, number>();
-      // tslint:disable-next-line: no-string-literal
-      response['features'].forEach(element => {
-        const attributes = element.attributes;
-        const date = attributes.Meldedatum;
-        const count = attributes.AnzahlFall;
-        result.set(date, result.has(date) ? result.get(date) + count : count);
-      });
-      return result;
-    }));
+    let offset = 0;
+    const result = new Map<string, number>();
+    return this.request(region, offset).pipe(
+      expand(response => response && response.features.length === 2000 ? this.request(region, offset += 2000) : EMPTY),
+      map(response => {
+        response.features.forEach((element: { attributes: any; }) => {
+          const attributes = element.attributes;
+          const date = attributes.Meldedatum;
+          const count = attributes.AnzahlFall;
+          result.set(date, result.has(date) ? result.get(date) + count : count);
+        });
+        return result;
+      }),
+    );
+  }
+
+  request(region: string, offset: number): Observable<any> {
+    const baseUrl = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/RKI_COVID19/FeatureServer/0/';
+    const whereParams = `&where=(Meldedatum > timestamp \'2020-01-25 22:59:59\' AND NeuerFall IN(0, 1)) ${region}`;
+    const dataParmas = '&outFields=AnzahlFall,Meldedatum&orderByFields=Meldedatum asc&resultType=standard';
+    const resultParams = `&resultRecordCount=2000&resultOffset=${offset}`;
+    return this.httpClient.get(`${baseUrl}query?f=json${whereParams}${dataParmas}${resultParams}`);
   }
 }

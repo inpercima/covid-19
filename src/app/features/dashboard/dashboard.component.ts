@@ -5,6 +5,7 @@ import { Label } from 'ng2-charts';
 import { ChartDataSets } from 'chart.js';
 
 import { DataService } from './data.service';
+import { forkJoin } from 'rxjs/';
 
 @Component({
   selector: 'covid-dashboard',
@@ -30,38 +31,41 @@ export class DashboardComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.data('').subscribe(response => {
+    forkJoin(this.dataService.data('')).subscribe(response => {
       const data = this.prepareData(response, 'Germany');
       this.chartDataGermany = data.get('data') as ChartDataSets[];
       this.chartLabelsGermany = data.get('labels') as Label[];
     });
 
-    this.dataService.data(`AND (Bundesland='Sachsen')`).subscribe(response => {
+    forkJoin(this.dataService.data(`AND (Bundesland='Sachsen')`)).subscribe(response => {
       const data = this.prepareData(response, 'Saxony');
       this.chartDataSaxony = data.get('data') as ChartDataSets[];
       this.chartLabelsSaxony = data.get('labels') as Label[];
     });
 
-    this.dataService.data(`AND (IdLandkreis='14713')`).subscribe(response => {
+    forkJoin(this.dataService.data(`AND (IdLandkreis='14713')`)).subscribe(response => {
       const data = this.prepareData(response, 'Leipzig');
       this.chartDataLeipzig = data.get('data') as ChartDataSets[];
       this.chartLabelsLeipzig = data.get('labels') as Label[];
     });
   }
 
-  prepareData(response: Map<string, number>, label: string): Map<string, object> {
+  prepareData(response: Map<string, number>[], label: string): Map<string, object> {
     const cases: number[] = [];
     const cumultatedCases: number[] = [];
     const labels: Label[] = [];
-    for (const entry of response.entries()) {
-      labels.push(this.pipe.transform(new Date(entry[0]), 'dd.MM.yyyy'));
-      cases.push(entry[1]);
-      cumultatedCases.push(!cumultatedCases.length ? entry[1] : cumultatedCases[cumultatedCases.length - 1] + entry[1]);
-    }
-    const dataLabel = `Novel COVID-19 cases by date in ${label}`;
+
     const result = new Map<string, object>();
-    result.set('data', [{ data: cases, label: dataLabel }, { data: cumultatedCases, label: `${dataLabel} cumulated` }]);
-    result.set('labels', labels);
+    response.forEach(entries => {
+      for (const entry of entries) {
+        labels.push(this.pipe.transform(new Date(entry[0]), 'dd.MM.yyyy'));
+       cases.push(entry[1]);
+       cumultatedCases.push(!cumultatedCases.length ? entry[1] : cumultatedCases[cumultatedCases.length - 1] + entry[1]);
+      }
+      const dataLabel = `Novel COVID-19 cases by date in ${label}`;
+      result.set('data', [{ data: cases, label: dataLabel }, { data: cumultatedCases, label: `${dataLabel} cumulated` }]);
+      result.set('labels', labels);
+    })
     return result;
   }
 }

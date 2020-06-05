@@ -1,11 +1,11 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
-import { Label } from 'ng2-charts';
 import { ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
+import { forkJoin } from 'rxjs';
 
 import { DataService } from './data.service';
-import { forkJoin } from 'rxjs/';
 
 @Component({
   selector: 'covid-dashboard',
@@ -31,19 +31,19 @@ export class DashboardComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    forkJoin(this.dataService.data('')).subscribe(response => {
+    forkJoin([this.dataService.data('')]).subscribe(response => {
       const data = this.prepareData(response, 'Germany');
       this.chartDataGermany = data.get('data') as ChartDataSets[];
       this.chartLabelsGermany = data.get('labels') as Label[];
     });
 
-    forkJoin(this.dataService.data(`AND (Bundesland='Sachsen')`)).subscribe(response => {
+    forkJoin([this.dataService.data(`AND (Bundesland='Sachsen')`)]).subscribe(response => {
       const data = this.prepareData(response, 'Saxony');
       this.chartDataSaxony = data.get('data') as ChartDataSets[];
       this.chartLabelsSaxony = data.get('labels') as Label[];
     });
 
-    forkJoin(this.dataService.data(`AND (IdLandkreis='14713')`)).subscribe(response => {
+    forkJoin([this.dataService.data(`AND (IdLandkreis='14713')`)]).subscribe(response => {
       const data = this.prepareData(response, 'Leipzig');
       this.chartDataLeipzig = data.get('data') as ChartDataSets[];
       this.chartLabelsLeipzig = data.get('labels') as Label[];

@@ -29,10 +29,16 @@ export class DataService {
   }
 
   request(region: string, offset: number): Observable<any> {
-    const baseUrl = 'https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/RKI_COVID19/FeatureServer/0/';
-    const whereParams = `&where=(Meldedatum > timestamp \'2020-01-25 22:59:59\' AND NeuerFall IN(0, 1)) ${region}`;
-    const dataParmas = '&outFields=AnzahlFall,Meldedatum&orderByFields=Meldedatum asc&resultType=standard';
-    const resultParams = `&resultRecordCount=2000&resultOffset=${offset}`;
-    return this.httpClient.get(`${baseUrl}query?f=json${whereParams}${dataParmas}${resultParams}`);
+    return this.httpClient.get('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/RKI_COVID19/FeatureServer/0/query', {
+      params: {
+        f: 'json',
+        where: `(Meldedatum > timestamp \'2020-01-25 22:59:59\' AND NeuerFall IN(0, 1)) ${region}`,
+        outFields: 'AnzahlFall,Meldedatum',
+        orderByFields: 'Meldedatum asc',
+        resultType: 'standard',
+        resultRecordCount: String(2000),
+        resultOffset: String(offset)
+      }
+    });
   }
 }

@@ -14,7 +14,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `angular-cli 9.1.7` or higher
+* `angular-cli 10.0.0` or higher
 
 ### Node, npm or yarn
 
@@ -28,8 +28,8 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
 | library    | current version | wanted version | reason |
 | ---------- | --------------- | -------------- | ------ |
-| tslib      | 1.13.0          | 2.0.0          | "@angular/core@9.1.9" has incorrect peer dependency "tslib@^1.10.0" |
-| typescript | 3.8.3           | 3.9.5          | "@angular/compiler-cli@9.1.9" has incorrect peer dependency "typescript@>=3.6 <3.9" |
+| codelyzer  | 5.2.2           | 5.2.2          | "codelyzer@5.2.2" has incorrect peer dependency "@angular/core@>=2.3.1 <10.0.0 || >9.0.0-beta <10.0.0 || >9.1.0-beta <10.0.0 || >9.2.0-beta <10.0.0" |
+| ng2-charts | 2.3.2           | 2.3.2          | "ng2-charts@2.3.2" has incorrect peer dependency "@angular/common@^7.2.0 || ^8.0.0 || ^9.0.0" |
 
 ## Getting started
 

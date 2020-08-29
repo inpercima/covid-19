@@ -14,7 +14,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `angular-cli 10.0.2` or higher
+* `angular-cli 10.0.8` or higher
 
 ### Node, npm or yarn
 
@@ -28,7 +28,8 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
 | library    | current version | wanted version | reason |
 | ---------- | --------------- | -------------- | ------ |
-| ng2-charts | 2.3.2           | 2.3.2          | "ng2-charts@2.3.2" has incorrect peer dependency "@angular/common@^7.2.0 || ^8.0.0 || ^9.0.0" |
+| typescrypt | 3.9.7           | 4.0.2          | "@angular/compiler-cli@10.0.14" has incorrect peer dependency "typescript@>=3.9 <4.0" |
+| zone.js    | 0.10.3          | 0.11.1         | "@angular/core@10.0.14" has incorrect peer dependency "zone.js@~0.10.3" |
 
 ## Getting started
 

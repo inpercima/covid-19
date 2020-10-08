@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -12,8 +13,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     CommonModule,
     ChartsModule,
+    HttpClientModule,
     MatCardModule,
-    FlexLayoutModule
-  ], exports: [ DashboardComponent ]
+    FlexLayoutModule,
+  ],
+  exports: [ DashboardComponent ],
 })
 export class FeaturesModule { }

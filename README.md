@@ -6,21 +6,21 @@
 
 Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.
 
-This app is online under [covid-19.inpercima.net](http://covid-19.inpercima.net).
+This app is online under [inpercima.github.io/covid-19](https://inpercima.github.io/covid-19).
 
-This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.0.0-SNAPSHOT.
+This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.0.1.
 
 ## Prerequisites
 
 ### Angular CLI
 
-* `angular-cli 10.0.8` or higher
+* `angular-cli 10.1.4` or higher
 
 ### Node, npm or yarn
 
 * `node 12.16.1` or higher in combination with
   * `npm 6.13.4` or higher or
-  * `yarn 1.22.4` or higher, used in this repository
+  * `yarn 1.22.5` or higher, used in this repository
 
 ## Dependency check
 
@@ -28,8 +28,7 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 
 | library    | current version | wanted version | reason |
 | ---------- | --------------- | -------------- | ------ |
-| typescrypt | 3.9.7           | 4.0.2          | "@angular/compiler-cli@10.0.14" has incorrect peer dependency "typescript@>=3.9 <4.0" |
-| zone.js    | 0.10.3          | 0.11.1         | "@angular/core@10.0.14" has incorrect peer dependency "zone.js@~0.10.3" |
+| zone.js | 0.10.3 | 0.11.1 | "@angular/core@10.1.4" has incorrect peer dependency "zone.js@~0.10.3" |
 
 ## Getting started
 
@@ -93,20 +92,44 @@ ng e2e
 ### General
 
 All options have to been set in the environment files but some of them do not need to be changed.
-All defaults refer to the development environment file (`environment.dev.ts`).
+All defaults refer to the environment file (`environment.ts`), they are prepared in devMode (`environment.dev.ts`).
 Change for prodMode the option `production` to `true`.
 
 ### Table of contents
 
+* [api](#api)
+* [apiSuffix](#apiSuffix)
 * [appname](#appname)
+* [defaultRoute](#defaultRoute)
 * [production](#production)
 * [theme](#theme)
+
+### `api`
+
+Defines the URL to the backend.
+
+* default: `./`
+* type: `string`
+
+### `apiSuffix`
+
+Defines a suffix for the api to the backend.
+
+* default: EMPTY
+* type: `string`
 
 ### `appname`
 
 Applicationwide title of the app, displayed in title and toolbar.
 
 * default: `COVID-19`
+* type: `string`
+
+### `defaultRoute`
+
+The default route and the route to be redirected after a login if no route is stored or if a route does not exist.
+
+* default: `dashboard`
 * type: `string`
 
 ### `production`

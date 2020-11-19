@@ -2,7 +2,7 @@
   <div fxFlex="90" fxFlex.sm="80" fxFlex.gt-sm="60">
     <mat-card >
       <mat-card-content>
-        <canvas *ngIf="chartDataGermany; else loadingGermany" baseChart [datasets]="chartDataGermany" [labels]="chartLabelsGermany" [options]="chartOptions" legend="true" chartType="line"></canvas>
+        <canvas *ngIf="chartDataGermany.length; else loadingGermany" baseChart [datasets]="chartDataGermany" [labels]="chartLabelsGermany" [options]="chartOptions" [legend]="true" chartType="line"></canvas>
         <ng-template #loadingGermany>
           Loading...
         </ng-template>
@@ -10,7 +10,7 @@
     </mat-card>
     <mat-card>
       <mat-card-content>
-        <canvas *ngIf="chartDataSaxony; else loadingSaxony" baseChart [datasets]="chartDataSaxony" [labels]="chartLabelsSaxony" [options]="chartOptions" legend="true" chartType="line"></canvas>
+        <canvas *ngIf="chartDataSaxony.length; else loadingSaxony" baseChart [datasets]="chartDataSaxony" [labels]="chartLabelsSaxony" [options]="chartOptions" [legend]="true" chartType="line"></canvas>
         <ng-template #loadingSaxony>
           Loading...
         </ng-template>
@@ -18,7 +18,7 @@
     </mat-card>
     <mat-card>
       <mat-card-content>
-        <canvas *ngIf="chartDataLeipzig; else loadingLeipzig" baseChart [datasets]="chartDataLeipzig" [labels]="chartLabelsLeipzig" [options]="chartOptions" legend="true" chartType="line"></canvas>
+        <canvas *ngIf="chartDataLeipzig.length; else loadingLeipzig" baseChart [datasets]="chartDataLeipzig" [labels]="chartLabelsLeipzig" [options]="chartOptions" [legend]="true" chartType="line"></canvas>
         <ng-template #loadingLeipzig>
           Loading...
         </ng-template>

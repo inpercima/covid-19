@@ -12,7 +12,7 @@
       },
       "notFound": {
         "enabled": false,
-        "name": "not-found"
+        "name": ""
       },
       "routing": false
     },
@@ -21,8 +21,8 @@
         "name": "Marcel Jänicke",
         "email": "inpercima@gmail.com"
       }],
-      "homepage": "http://covid-19.inpercima.net",
-      "repository": "https://github.com/inpercima/covid-19"
+      "homepage": "https://inpercima.github.io/covid-19/",
+      "repository": "https://github.com/inpercima/covid-19/"
     },
     "prefix": "covid",
     "theme": "indigo-pink",
@@ -32,7 +32,7 @@
   "general": {
     "author": "Marcel Jänicke",
     "description": "Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.",
-    "modRewriteIndex": true,
+    "modRewriteIndex": false,
     "name": "covid-19",
     "title": "COVID-19",
     "useDocker": false,

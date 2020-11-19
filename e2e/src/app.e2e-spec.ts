@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display title in toolbar', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('COVID-19');
+  it('should display title in toolbar', async () => {
+    await page.navigateTo();
+    expect(await page.getTitleText()).toEqual('COVID-19');
   });
 
   afterEach(async () => {

@@ -14,13 +14,13 @@ import { DataService } from './data.service';
 })
 export class DashboardComponent implements OnInit {
 
-  chartDataGermany: ChartDataSets[];
-  chartDataSaxony: ChartDataSets[];
-  chartDataLeipzig: ChartDataSets[];
+  chartDataGermany: ChartDataSets[] = [];
+  chartDataSaxony: ChartDataSets[] = [];
+  chartDataLeipzig: ChartDataSets[] = [];
 
-  chartLabelsGermany: Label[];
-  chartLabelsSaxony: Label[];
-  chartLabelsLeipzig: Label[];
+  chartLabelsGermany: Label[] = [];
+  chartLabelsSaxony: Label[] = [];
+  chartLabelsLeipzig: Label[] = [];
 
   chartOptions = {
     responsive: true,
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     forkJoin([this.dataService.data('')]).subscribe(response => {
       const data = this.prepareData(response, 'Germany');
       this.chartDataGermany = data.get('data') as ChartDataSets[];
@@ -58,14 +58,14 @@ export class DashboardComponent implements OnInit {
     const result = new Map<string, object>();
     response.forEach(entries => {
       for (const entry of entries) {
-        labels.push(this.pipe.transform(new Date(entry[0]), 'dd.MM.yyyy'));
-       cases.push(entry[1]);
-       cumultatedCases.push(!cumultatedCases.length ? entry[1] : cumultatedCases[cumultatedCases.length - 1] + entry[1]);
+        labels.push(this.pipe.transform(new Date(entry[0]), 'dd.MM.yyyy') as Label);
+        cases.push(entry[1]);
+        cumultatedCases.push(!cumultatedCases.length ? entry[1] : cumultatedCases[cumultatedCases.length - 1] + entry[1]);
       }
       const dataLabel = `Novel COVID-19 cases by date in ${label}`;
       result.set('data', [{ data: cases, label: dataLabel }, { data: cumultatedCases, label: `${dataLabel} cumulated` }]);
       result.set('labels', labels);
-    })
+    });
     return result;
   }
 }

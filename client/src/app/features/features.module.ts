@@ -9,7 +9,9 @@ import { ChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [ DashboardComponent ],
+  declarations: [
+    DashboardComponent,
+  ],
   imports: [
     CommonModule,
     ChartsModule,
@@ -17,6 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatCardModule,
     FlexLayoutModule,
   ],
-  exports: [ DashboardComponent ],
+  exports: [
+    DashboardComponent,
+  ],
 })
 export class FeaturesModule { }

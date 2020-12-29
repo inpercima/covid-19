@@ -8,10 +8,10 @@
   ],
   "dependencies": {
     "@angular/animations": "11.0.5",
-    "@angular/cdk": "11.0.3",
     "@angular/common": "11.0.5",
     "@angular/compiler": "11.0.5",
     "@angular/core": "11.0.5",
+    "@angular/cdk": "11.0.3",
     "@angular/flex-layout": "11.0.0-beta.33",
     "@angular/forms": "11.0.5",
     "@angular/material": "11.0.3",
@@ -25,13 +25,14 @@
   },
   "description": "Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.",
   "devDependencies": {
+    "@angular-builders/custom-webpack": "11.0.0",
     "@angular-devkit/build-angular": "0.1100.5",
     "@angular/cli": "11.0.5",
     "@angular/compiler-cli": "11.0.5",
     "@types/jasmine": "3.6.2",
     "@types/node": "14.14.16",
-    "angular-cli-ghpages": "1.0.0-rc.1",
     "codelyzer": "6.0.1",
+    "copy-webpack-plugin": "4.6.0",
     "jasmine-core": "3.6.0",
     "jasmine-spec-reporter": "6.0.0",
     "karma": "5.2.3",
@@ -49,14 +50,14 @@
   },
   "homepage": "https://inpercima.github.io/covid-19/",
   "license": "MIT",
-  "name": "covidx19",
+  "name": "covid-19",
   "private": true,
   "repository": "https://github.com/inpercima/covid-19/",
   "scripts": {
-    "build:dev": "ng lint && ng build --configuration=dev",
+    "build:dev": "export NODE_ENV='dev' && ng lint && ng build --configuration=dev",
     "serve:dev": "ng serve -o --configuration=dev",
-    "watch:dev": "ng build --watch --configuration=dev",
-    "build:prod": "ng lint && ng build --prod"
+    "watch:dev": "export NODE_ENV='dev' && ng build --watch --configuration=dev",
+    "build:prod": "export NODE_ENV='prod' && ng lint && ng build --prod"
   },
   "version": "1.0.0-SNAPSHOT"
 }

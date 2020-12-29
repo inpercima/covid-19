@@ -41,14 +41,14 @@
     "useSecurity": false
   },
   "server": {
-    "backend": "js",
+    "backend": "php",
     "javaKt": {
       "management": "",
       "packagePath": ""
     },
     "php": {
-      "modRewritePhpExtension": false,
-      "serverAsApi": false
+      "modRewritePhpExtension": true,
+      "serverAsApi": true
     }
   }
 }

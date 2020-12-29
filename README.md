@@ -4,7 +4,7 @@
 
 Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.
 
-This app is online under [inpercima.github.io/covid-19](https://inpercima.github.io/covid-19).
+This app is online under [covid-19.inpercima.net](http://covid-19.inpercima.net).
 
 This project was generated with [swaaplate](https://github.com/inpercima/swaaplate) version 2.1.0.
 
@@ -34,7 +34,6 @@ Some libraries could not be updated b/c of peer dependencies or knowing issues.
 | copy-webpack-plugin | 4.6.0           | 7.0.0          | "copy-webpack-plugin@7.0.0" has unmet peer dependency "webpack@^5.1.0" |
 | typescript          | 4.0.5           | 4.1.3          | "@angular-devkit/build-angular@0.1100.5" has incorrect peer dependency "typescript@~4.0.0" |
 | zone.js             | 0.10.3          | 0.11.3         | "@angular/core@11.0.5" has incorrect peer dependency "zone.js@~0.10.3" |
-
 
 ## Getting started
 

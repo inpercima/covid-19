@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    forkJoin([this.dataService.data('')]).subscribe(response => {
+    forkJoin([this.dataService.load()]).subscribe(response => {
       const data = this.prepareData(response, 'Germany');
       this.chartDataGermany = data.get('data') as ChartDataSets[];
       this.chartLabelsGermany = data.get('labels') as Label[];

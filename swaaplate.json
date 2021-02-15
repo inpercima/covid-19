@@ -32,7 +32,7 @@
   "general": {
     "author": "Marcel Jänicke",
     "description": "Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.",
-    "modRewriteIndex": false,
+    "modRewriteIndex": true,
     "name": "covid-19",
     "title": "COVID-19",
     "useDocker": false,

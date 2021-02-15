@@ -4,7 +4,6 @@
 
 export const environment = {
   api: './api/',
-  apiSuffix: '',
   appname: 'COVID-19',
   defaultRoute: 'dashboard',
   production: false,

@@ -79,7 +79,7 @@ Change for prodMode the option `production` to `true`.
 
 Defines the URL to the backend.
 
-* default: `./`
+* default: `./api/`
 * type: `string`
 
 ### `appname`

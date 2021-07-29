@@ -1,4 +1,25 @@
-<mat-toolbar color="primary" class="mat-elevation-z4">
+<mat-toolbar fxLayoutAlign="space-between center" color="primary" class="mat-elevation-z4">
   {{ appname }}
+  <button mat-button (click)="openDialog(dialog)">APP INFO</button>
 </mat-toolbar>
+<ng-template #dialog>
+  <mat-dialog-content>
+    <p>
+      Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.
+    </p>
+    <p>
+      Data provided by RKI (Robert Koch Institute).
+      <br>
+      RKI uses the data for <a href="https://corona.rki.de" target="_blank">corona.rki.de</a>,
+      same as
+      <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4" target="_blank">https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4</a>.
+      <br>
+      The data can be queryed by
+      <a href="https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/RKI_COVID19/FeatureServer/0/query" target="_blank">ArcGIS REST Services Directory</a>.
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close cdkFocusInitial>Close</button>
+  </mat-dialog-actions>
+</ng-template>
 <covid-dashboard></covid-dashboard>

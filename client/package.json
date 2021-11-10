@@ -61,6 +61,7 @@
   "scripts": {
     "build:dev": "export NODE_ENV='dev' && ng lint && ng build --configuration=development",
     "serve:dev": "ng serve -o --configuration=development",
+    "serve:dev:proxy": "ng serve -o --configuration=development --proxy-config proxy.conf.json",
     "watch:dev": "export NODE_ENV='dev' && ng build --watch --configuration=development",
     "build:prod": "export NODE_ENV='prod' && ng lint && ng build"
   },

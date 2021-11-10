@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://warnung.bund.de/api31/appdata/covid/covidrules/DE",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

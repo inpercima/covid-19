@@ -12,7 +12,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `angular-cli 13.0.1` or higher
+* `angular-cli 13.1.2` or higher
 
 ### Apache and php
 
@@ -24,15 +24,6 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 * `node 16.13.0` or higher in combination with
   * `npm 8.1.0` or higher or
   * `yarn 1.22.11` or higher, used in this repository
-
-## Dependency check
-
-Some libraries could not be updated b/c of peer dependencies or knowing issues.
-
-| library    | current version | last version | reason |
-| ---------- | --------------- | ------------ | ------ |
-| rxjs       | 6.5.3           | 7.4.0        | "ng2-charts@2.4.3" has incorrect peer dependency "rxjs@^6.3.3" and @"angular/core@13.0.0" has incorrect peer dependency "rxjs@^6.5.3 \|\| ^7.4.0" |
-| chart.js   | 2.9.4           | 3.6.0        | "ng2-charts@2.4.3" has incorrect peer dependency "chart.js@^2.9.3" |
 
 ## Getting started
 

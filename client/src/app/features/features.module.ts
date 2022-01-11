@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 import { MaterialModule } from '../shared/material/material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -14,7 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    ChartsModule,
+    NgChartsModule,
     HttpClientModule,
     FlexLayoutModule,
     MaterialModule,

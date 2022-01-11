@@ -1,9 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
-import { ChartDataSets } from 'chart.js';
-import { Label } from 'ng2-charts';
-import { forkJoin } from 'rxjs';
+import { ChartConfiguration } from 'chart.js';
 
 import { DataService } from './data.service';
 
@@ -12,14 +10,13 @@ import { DataService } from './data.service';
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
-
-  chartDataGermany: ChartDataSets[] = [];
-  chartDataSaxony: ChartDataSets[] = [];
-  chartDataLeipzig: ChartDataSets[] = [];
-
-  chartLabelsGermany: Label[] = [];
-  chartLabelsSaxony: Label[] = [];
-  chartLabelsLeipzig: Label[] = [];
+  chartData: ChartConfiguration['data'] = {
+    datasets: [],
+    labels: [],
+  };
+  cdGermany = this.chartData;
+  cdSaxony = this.chartData;
+  cdLeipzig = this.chartData;
 
   chartOptions = {
     responsive: true,
@@ -27,44 +24,41 @@ export class DashboardComponent implements OnInit {
 
   pipe = new DatePipe('de-DE');
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    forkJoin([this.dataService.load()]).subscribe(response => {
-      const data = this.prepareData(response, 'Germany');
-      this.chartDataGermany = data.get('data') as ChartDataSets[];
-      this.chartLabelsGermany = data.get('labels') as Label[];
+    this.dataService.data('').subscribe((dataserie: any) => {
+      this.cdGermany = this.prepareData(dataserie, 'Germany');
     });
 
-    forkJoin([this.dataService.data(`AND (Bundesland='Sachsen')`)]).subscribe(response => {
-      const data = this.prepareData(response, 'Saxony');
-      this.chartDataSaxony = data.get('data') as ChartDataSets[];
-      this.chartLabelsSaxony = data.get('labels') as Label[];
+    this.dataService.data(`AND (Bundesland='Sachsen')`).subscribe((dataserie: any) => {
+      this.cdSaxony = this.prepareData(dataserie, 'Saxony');
     });
 
-    forkJoin([this.dataService.data(`AND (IdLandkreis='14713')`)]).subscribe(response => {
-      const data = this.prepareData(response, 'Leipzig');
-      this.chartDataLeipzig = data.get('data') as ChartDataSets[];
-      this.chartLabelsLeipzig = data.get('labels') as Label[];
+    this.dataService.data(`AND (IdLandkreis='14713')`).subscribe((dataserie: any) => {
+      this.cdLeipzig = this.prepareData(dataserie, 'Leipzig');
     });
   }
 
-  prepareData(response: Map<string, number>[], label: string): Map<string, object> {
-    const cases: number[] = [];
-    const cumultatedCases: number[] = [];
-    const labels: Label[] = [];
-
-    const result = new Map<string, object>();
-    response.forEach(entries => {
-      for (const entry of entries) {
-        labels.push(this.pipe.transform(new Date(entry[0]), 'dd.MM.yyyy') as Label);
-        cases.push(entry[1]);
-        cumultatedCases.push(!cumultatedCases.length ? entry[1] : cumultatedCases[cumultatedCases.length - 1] + entry[1]);
-      }
-      const dataLabel = `Novel COVID-19 cases by date in ${label}`;
-      result.set('data', [{ data: cases, label: dataLabel }, { data: cumultatedCases, label: `${dataLabel} cumulated` }]);
-      result.set('labels', labels);
-    });
+  prepareData(dataserie: Map<string, number>, label: string): ChartConfiguration['data'] {
+    const result: ChartConfiguration['data'] = {
+      datasets: [{
+        data: [],
+        label: `Novel COVID-19 cases by date in ${label}`,
+      }, {
+        data: [],
+        label: `Novel COVID-19 cases by date in ${label} cumultated`,
+      }],
+      labels: [],
+    };
+    let cumultatedCases = 0;
+    for (let entry of dataserie.entries()) {
+      result.datasets[0].data.push(entry[1]);
+      ;
+      result.datasets[1].data.push(cumultatedCases += entry[1]);
+      result.labels!.push(this.pipe.transform(new Date(entry[0]), 'dd.MM.yyyy')!);
+    }
+    console.log(result);
     return result;
   }
 }

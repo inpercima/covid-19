@@ -42,15 +42,6 @@ yarn serve:dev
 yarn watch:dev
 ```
 
-### Run in devMode with proxy
-
-```bash
-# build and starts a server, rebuild after changes, reachable on http://localhost:4200/
-yarn serve:dev:proxy
-```
-
-Note that the `api` in the `environment.dev.ts` must be set to `/api`.
-
 ### Package
 
 ```bash

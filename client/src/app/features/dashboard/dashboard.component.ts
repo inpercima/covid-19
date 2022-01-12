@@ -1,4 +1,3 @@
-import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 import { ChartConfiguration } from 'chart.js';
@@ -22,43 +21,11 @@ export class DashboardComponent implements OnInit {
     responsive: true,
   };
 
-  pipe = new DatePipe('de-DE');
-
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.data('').subscribe((dataserie: any) => {
-      this.cdGermany = this.prepareData(dataserie, 'Germany');
-    });
-
-    this.dataService.data(`AND (Bundesland='Sachsen')`).subscribe((dataserie: any) => {
-      this.cdSaxony = this.prepareData(dataserie, 'Saxony');
-    });
-
-    this.dataService.data(`AND (IdLandkreis='14713')`).subscribe((dataserie: any) => {
-      this.cdLeipzig = this.prepareData(dataserie, 'Leipzig');
-    });
-  }
-
-  prepareData(dataserie: Map<string, number>, label: string): ChartConfiguration['data'] {
-    const result: ChartConfiguration['data'] = {
-      datasets: [{
-        data: [],
-        label: `Novel COVID-19 cases by date in ${label}`,
-      }, {
-        data: [],
-        label: `Novel COVID-19 cases by date in ${label} cumultated`,
-      }],
-      labels: [],
-    };
-    let cumultatedCases = 0;
-    for (let entry of dataserie.entries()) {
-      result.datasets[0].data.push(entry[1]);
-      ;
-      result.datasets[1].data.push(cumultatedCases += entry[1]);
-      result.labels!.push(this.pipe.transform(new Date(entry[0]), 'dd.MM.yyyy')!);
-    }
-    console.log(result);
-    return result;
+    this.dataService.createDate('', 'Germany').subscribe((dataserie: any) => this.cdGermany = dataserie);
+    this.dataService.createDate(`AND (Bundesland='Sachsen')`, 'Saxony').subscribe((dataserie: any) => this.cdSaxony = dataserie);
+    this.dataService.createDate(`AND (IdLandkreis='14713')`, 'Leipzig').subscribe((dataserie: any) => this.cdLeipzig = dataserie);
   }
 }

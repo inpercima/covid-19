@@ -24,8 +24,8 @@ export class DashboardComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.createDate('', 'Germany').subscribe((dataserie: any) => this.cdGermany = dataserie);
-    this.dataService.createDate(`AND (Bundesland='Sachsen')`, 'Saxony').subscribe((dataserie: any) => this.cdSaxony = dataserie);
-    this.dataService.createDate(`AND (IdLandkreis='14713')`, 'Leipzig').subscribe((dataserie: any) => this.cdLeipzig = dataserie);
+    this.dataService.createDate('', 'Germany').subscribe((dataserie: any) => (this.cdGermany = dataserie));
+    this.dataService.createDate(`AND (Bundesland='Sachsen')`, 'Saxony').subscribe((dataserie: any) => (this.cdSaxony = dataserie));
+    this.dataService.createDate(`AND (IdLandkreis='14713')`, 'Leipzig').subscribe((dataserie: any) => (this.cdLeipzig = dataserie));
   }
 }

@@ -25,7 +25,6 @@
   },
   "description": "Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.",
   "devDependencies": {
-    "@angular-builders/custom-webpack": "13.0.0",
     "@angular-devkit/build-angular": "13.1.2",
     "@angular-eslint/builder": "13.0.1",
     "@angular-eslint/eslint-plugin": "13.0.1",
@@ -39,7 +38,6 @@
     "@types/node": "17.0.8",
     "@typescript-eslint/eslint-plugin": "5.9.0",
     "@typescript-eslint/parser": "5.9.0",
-    "copy-webpack-plugin": "10.2.0",
     "cypress": "9.2.0",
     "eslint": "8.6.0",
     "jasmine-core": "4.0.0",

@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="90" fxFlex.sm="80" fxFlex.gt-sm="60">
+    <mat-card>
+      <mat-card-content>
+        <canvas *ngIf="cdGermany.datasets.length; else loadingGermany" baseChart [data]="cdGermany" [options]="chartOptions" chartType="line"></canvas>
+        <ng-template #loadingGermany>
+          Loading...
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-content>
+        <canvas *ngIf="cdSaxony.datasets.length; else loadingSaxony" baseChart [data]="cdSaxony" [options]="chartOptions" chartType="line"></canvas>
+        <ng-template #loadingSaxony>
+          Loading...
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-content>
+        <canvas *ngIf="cdLeipzig.datasets.length; else loadingLeipzig" baseChart [data]="cdLeipzig" [options]="chartOptions" chartType="line"></canvas>
+        <ng-template #loadingLeipzig>
+          Loading...
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+    <mat-card style="margin-bottom: 20px;">
+      <mat-card-content>
+        Data provided by RKI (Robert Koch Institute).
+        <br><br>
+        RKI uses the data for <a href="https://corona.rki.de" target="_blank">corona.rki.de</a>,
+        same as <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4" target="_blank">https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4</a>.
+        <br><br>
+        The data can be queryed by <a href="https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/RKI_COVID19/FeatureServer/0/query" target="_blank">ArcGIS REST Services Directory</a>.
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

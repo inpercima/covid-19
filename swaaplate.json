@@ -1,0 +1,54 @@
+{
+  "client": {
+    "buildDir": "dist",
+    "ghUser": "inpercima",
+    "installDependencies": true,
+    "language": "en",
+    "modules": {
+      "enabled": true,
+      "features": {
+        "defaultRoute": "dashboard",
+        "name": "features"
+      },
+      "notFound": {
+        "enabled": false,
+        "name": ""
+      },
+      "routing": false
+    },
+    "packageJson": {
+      "contributors": [{
+        "name": "Marcel Jänicke",
+        "email": "inpercima@gmail.com"
+      }],
+      "homepage": "https://inpercima.github.io/covid-19/",
+      "repository": "https://github.com/inpercima/covid-19/"
+    },
+    "prefix": "covid",
+    "theme": "indigo-pink",
+    "useGoogleFonts": true,
+    "useYarn": true
+  },
+  "general": {
+    "author": "Marcel Jänicke",
+    "description": "Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.",
+    "modRewriteIndex": true,
+    "name": "covid-19",
+    "title": "COVID-19",
+    "useDocker": false,
+    "useMITLicense": true,
+    "useMock": false,
+    "useSecurity": false
+  },
+  "server": {
+    "backend": "js",
+    "javaKt": {
+      "management": "",
+      "packagePath": ""
+    },
+    "php": {
+      "modRewritePhpExtension": false,
+      "serverAsApi": false
+    }
+  }
+}

@@ -1,7 +1,7 @@
 # COVID-19
 
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
-[![Node CI](https://github.com/inpercima/covid-19/actions/workflows/ci.yml/badge.svg)](https://github.com/inpercima/covid-19/actions/workflows/ci.yml)
+[![Node CI/CD](https://github.com/inpercima/covid-19/actions/workflows/ci.yml/badge.svg)](https://github.com/inpercima/covid-19/actions/workflows/ci.yml)
 
 Coronavirus (COVID-19) cases in Germany, Saxony and Leipzig.
 

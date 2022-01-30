@@ -13,7 +13,7 @@ This project was generated with [swaaplate](https://github.com/inpercima/swaapla
 
 ### Angular CLI
 
-* `angular-cli 13.1.4` or higher
+* `angular-cli 13.2.0` or higher
 
 ### Node, npm or yarn
 

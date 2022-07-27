@@ -2,6 +2,8 @@
 
 environment.dev.ts
 
+# environment.prod.ts is not listed here b/c this file is needed for automated build
+
 # ignore all in '.vscode' b/c some vsc config files contain user specific content
 .vscode/*
 

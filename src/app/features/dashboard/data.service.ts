@@ -54,7 +54,7 @@ export class DataService {
   }
 
   loadDataFromArcgis(region: string): Observable<any> {
-    return this.http.get('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/RKI_COVID19/FeatureServer/0/query', {
+    return this.http.get('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/query', {
       params: {
         f: 'json',
         where: `AnzahlFall > 0 ${region}`,

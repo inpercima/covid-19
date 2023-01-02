@@ -30,7 +30,7 @@ export class DataService {
 
     return this.loadData(region).pipe(
       map(response => {
-        for (let entry of response.entries()) {
+        for (const entry of response.entries()) {
           result.datasets[0].data.push(entry[1]);
           result.datasets[1].data.push(cumultatedCases += entry[1]);
           result.labels!.push(this.pipe.transform(new Date(entry[0]), 'dd.MM.yyyy')!);

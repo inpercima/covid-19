@@ -1,19 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        MatToolbarModule,
-      ],
-      declarations: [
-        AppComponent,
-      ],
-    }).compileComponents();
-  });
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [HttpClientTestingModule],
+  }));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);

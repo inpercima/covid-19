@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 
 import { ChartConfiguration } from 'chart.js';
 
+import { NgIf } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { NgChartsModule } from 'ng2-charts';
 import { DataService } from './data.service';
 
 @Component({
   selector: 'covid-dashboard',
   templateUrl: './dashboard.component.html',
+  standalone: true,
+  imports: [MatCardModule, NgIf, NgChartsModule],
 })
 export class DashboardComponent implements OnInit {
   chartData: ChartConfiguration['data'] = {

@@ -44,6 +44,7 @@ export class DataService {
     const result = new Map<string, number>();
     return this.loadDataFromArcgis(region).pipe(
       map(response => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         response.features.forEach((element: any) => {
           const attributes = element.attributes;
           result.set(attributes.Meldedatum, attributes.AnzahlFaelle);
@@ -53,6 +54,7 @@ export class DataService {
     );
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   loadDataFromArcgis(region: string): Observable<any> {
     return this.http.get('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/Covid19_RKI_Sums/FeatureServer/0/query', {
       params: {
